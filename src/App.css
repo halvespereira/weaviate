@@ -59,23 +59,23 @@
   position: fixed;
 }
 
+@media (max-width: 1200px) {
+  .__UserInput {
+    height: 700px;
+  }
+}
+
 @media (max-width: 500px) {
   .__UserInput > form {
     flex-direction: column;
     position: relative;
-    justify-content: start;
+    justify-content: center;
   }
 
   .__UserInput {
     flex-direction: column-reverse;
-    height: 350px;
+    height: 300px;
     margin-top: 2%;
-  }
-}
-
-@media (max-width: 1200px) {
-  .__UserInput {
-    height: 700px;
   }
 }
 
@@ -115,22 +115,7 @@
   background: #00152b;
 }
 
-@media (max-width: 500px) {
-  .__UserInput > form > .__input {
-    height: 16%;
-  }
-
-  .__select {
-    height: 16%;
-  }
-
-  .__UserInput > form > button {
-    height: 16%;
-    margin-top: 7%;
-  }
-}
-
-@media (max-width: 1200px) {
+@media (max-width: 1200px) and (min-width: 501px) {
   .__UserInput > form > .__input {
     height: 10%;
   }
@@ -142,6 +127,21 @@
   .__UserInput > form > button {
     height: 10%;
     margin-top: 14%;
+  }
+}
+
+@media (max-width: 500px) {
+  .__UserInput > form > .__input {
+    height: 16%;
+  }
+
+  .__select {
+    height: 16%;
+  }
+
+  .__UserInput > form > button {
+    height: 16%;
+    margin-top: 13%;
   }
 }
 
