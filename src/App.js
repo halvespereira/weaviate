@@ -143,11 +143,13 @@ function App() {
               data.map((d) => <Result data={d} key={nextId()} />)
             ) : (
               <div className="__placeHolderText">
-                <h3>
-                  {data === null
-                    ? "Welcome"
-                    : "Sorry, no results found. Please try again."}
-                </h3>
+                <div>
+                  {data === null ? (
+                    "Welcome"
+                  ) : (
+                    <h4>Sorry, no results found. Please try again</h4>
+                  )}
+                </div>
               </div>
             )}
           </div>
