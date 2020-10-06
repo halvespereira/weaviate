@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* App */
+.__App {
+  margin: 1% 0% 0 0%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.__Body {
+  display: flex;
+}
+
+/* Header */
+.logo {
+  height: 38px;
+  margin-left: 2.5%;
+  position: fixed;
+}
+
+@media (max-width: 500px) {
+  .logo {
+    height: 25px;
+  }
+}
+
+/* User input  */
+
+.__UserInput {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding: 3%;
+  height: 500px;
+  position: relative;
+  flex: 0.2;
 }
 
-.App-link {
-  color: #61dafb;
+.__UserInput > form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  position: fixed;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.__UserInput > form > input,
+label {
+  width: 100%;
+  height: 6%;
+  margin: 5%;
+  border: none;
+  outline-width: 0;
+  background: white;
+  border-radius: 5px;
+}
+
+.__UserInput > form > select {
+  width: 102%;
+  height: 6%;
+  margin: 5%;
+  border: none;
+  border-radius: 5px;
+}
+
+.__UserInput > form > button {
+  cursor: pointer;
+  background: #00152b;
+  transition: background 0.256s ease-out, border-color 0.256s ease-out,
+    border-radius 0.256s ease-out, color 0.256s ease-out,
+    opacity 0.256s ease-out, outline 0.256s ease-out, transform 0.256s ease-out;
+  border-bottom: 0;
+  border-radius: 1em 0 1em 0;
+  color: #fff;
+  width: 104%;
+  height: 6%;
+  margin: 2% 2% 2% 3%;
+  border: none;
+}
+
+.__UserInput > form > button:hover {
+  border-radius: 0 1em 0 1em;
+  background: #fa0171;
+}
+
+/* Results list */
+
+.__Results {
+  width: 75%;
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 0.8;
+  margin-top: 6%;
+}
+
+.__Results > h4 {
+  width: 100%;
+  text-align: center;
 }
