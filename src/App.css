@@ -87,6 +87,7 @@
 .__UserInput > form > .__input {
   width: 100%;
   height: 7.5%;
+  font-weight: 800;
 }
 
 .__select {
@@ -133,33 +134,53 @@
 @media (max-width: 500px) {
   .__UserInput > form > .__input {
     height: 16%;
+    width: 126%;
   }
 
   .__select {
     height: 16%;
+    width: 126%;
   }
 
   .__UserInput > form > button {
     height: 16%;
     margin-top: 13%;
+    width: 126%;
+  }
+
+  .__UserInput > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 /* Results list */
+
+.__ResultsDiv {
+  display: flex;
+  justify-content: center;
+  flex: 0.8;
+}
 
 .__Results {
   width: 75%;
   align-self: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  flex: 0.8;
+
   margin-top: 6%;
 }
 
 .__Results > h4 {
   width: 100%;
   text-align: center;
+}
+
+.__placeHolderText {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 @media (max-width: 500px) {
