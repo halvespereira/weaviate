@@ -134,18 +134,18 @@
 @media (max-width: 500px) {
   .__UserInput > form > .__input {
     height: 16%;
-    width: 126%;
+    width: 150%;
   }
 
   .__select {
     height: 16%;
-    width: 126%;
+    width: 150%;
   }
 
   .__UserInput > form > button {
     height: 16%;
     margin-top: 13%;
-    width: 126%;
+    width: 150%;
   }
 
   .__UserInput > form {

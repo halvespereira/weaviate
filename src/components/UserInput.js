@@ -1,11 +1,19 @@
 import React, { useRef } from "react";
+
+// Generate unique id
 import nextId from "react-id-generator";
+
+// List of publication to loop through
 import publicationList from "../publications";
+
+// Material UI library
 import FormHelperText from "@material-ui/core/FormHelperText";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
+
+// Spinner logo
 import logoInverted from "../images/color.png";
 const UserInput = ({
   searchFunction,
@@ -19,6 +27,7 @@ const UserInput = ({
   setLimit,
   onChange,
 }) => {
+  // Using refs to target elements
   const searchButton = useRef();
   const spinner = useRef();
 
@@ -30,6 +39,7 @@ const UserInput = ({
   return (
     <div className="__UserInput">
       <form noValidate autoComplete="off">
+        {/* Semantic word input */}
         <TextField
           type="text"
           id="filled-size-normal"
@@ -38,6 +48,8 @@ const UserInput = ({
           className="__input"
           helperText="Semantic Word"
         />
+
+        {/* Dropdown for publication list */}
         <FormControl className="__select">
           <Select
             value={publication}
@@ -54,6 +66,7 @@ const UserInput = ({
           <FormHelperText>Publication</FormHelperText>
         </FormControl>
 
+        {/* Greater than word count input */}
         <TextField
           helperText="Word Count Greater Than"
           type="number"
@@ -64,6 +77,7 @@ const UserInput = ({
           className="__input"
         />
 
+        {/* Results limit input */}
         <TextField
           helperText="Limit"
           type="number"
@@ -73,6 +87,7 @@ const UserInput = ({
           className="__input"
         />
 
+        {/* Submit button */}
         <button
           type="submit"
           onClick={(e) => searchFunction(e, spinner, searchButton)}

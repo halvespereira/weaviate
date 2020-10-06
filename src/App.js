@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
+
+// weaviate package
 import weaviate from "weaviate-client";
+
+// Other components
 import Result from "./components/Result";
-import nextId from "react-id-generator";
 import Header from "./components/Header";
 import UserInput from "./components/UserInput";
+
+// Generate unique id
+import nextId from "react-id-generator";
 
 function App() {
   // State and refs to store user input
@@ -145,7 +151,6 @@ function App() {
           </div>
         </div>
       </div>
-      {/* Input section - where user does his search and filters it */}
     </div>
   );
 }
