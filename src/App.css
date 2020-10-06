@@ -11,15 +11,29 @@
   display: flex;
 }
 
+@media (max-width: 500px) {
+  .__Body {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 /* Header */
-.logo {
+.__logo {
   height: 38px;
   margin-left: 2.5%;
   position: fixed;
 }
 
 @media (max-width: 500px) {
-  .logo {
+  .__logo {
+    height: 25px;
+    position: relative;
+  }
+}
+
+@media (max-width: 1200px) {
+  .__logo {
     height: 25px;
   }
 }
@@ -32,7 +46,7 @@
   justify-content: center;
   align-items: center;
   padding: 3%;
-  height: 500px;
+  height: 700px;
   position: relative;
   flex: 0.2;
 }
@@ -45,43 +59,90 @@
   position: fixed;
 }
 
-.__UserInput > form > input,
-label {
-  width: 100%;
-  height: 6%;
-  margin: 5%;
-  border: none;
-  outline-width: 0;
-  background: white;
-  border-radius: 5px;
+@media (max-width: 500px) {
+  .__UserInput > form {
+    flex-direction: column;
+    position: relative;
+    justify-content: start;
+  }
+
+  .__UserInput {
+    flex-direction: column-reverse;
+    height: 350px;
+    margin-top: 2%;
+  }
 }
 
-.__UserInput > form > select {
-  width: 102%;
-  height: 6%;
-  margin: 5%;
-  border: none;
-  border-radius: 5px;
+@media (max-width: 1200px) {
+  .__UserInput {
+    height: 700px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .__UserInput > form {
+    top: 0;
+  }
+}
+.__UserInput > form > .__input {
+  width: 100%;
+  height: 7.5%;
+}
+
+.__select {
+  height: 7.5%;
+  width: 100%;
 }
 
 .__UserInput > form > button {
   cursor: pointer;
-  background: #00152b;
+  background: #fa0171;
   transition: background 0.256s ease-out, border-color 0.256s ease-out,
     border-radius 0.256s ease-out, color 0.256s ease-out,
     opacity 0.256s ease-out, outline 0.256s ease-out, transform 0.256s ease-out;
   border-bottom: 0;
   border-radius: 1em 0 1em 0;
   color: #fff;
-  width: 104%;
+  width: 93%;
   height: 6%;
-  margin: 2% 2% 2% 3%;
+  margin: 15% 2% 2% 3%;
   border: none;
+  outline-width: 0;
 }
 
 .__UserInput > form > button:hover {
   border-radius: 0 1em 0 1em;
-  background: #fa0171;
+  background: #00152b;
+}
+
+@media (max-width: 500px) {
+  .__UserInput > form > .__input {
+    height: 16%;
+  }
+
+  .__select {
+    height: 16%;
+  }
+
+  .__UserInput > form > button {
+    height: 16%;
+    margin-top: 7%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .__UserInput > form > .__input {
+    height: 10%;
+  }
+
+  .__select {
+    height: 10%;
+  }
+
+  .__UserInput > form > button {
+    height: 10%;
+    margin-top: 14%;
+  }
 }
 
 /* Results list */
@@ -99,4 +160,53 @@ label {
 .__Results > h4 {
   width: 100%;
   text-align: center;
+}
+
+@media (max-width: 500px) {
+  .__Results {
+    margin-top: 0;
+    width: 95%;
+  }
+}
+
+/* Logo spinner */
+
+.__spinner {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+  position: fixed;
+  bottom: 20%;
+}
+
+@media (max-width: 500px) {
+  .__spinner {
+    top: 1%;
+    right: 4%;
+    width: 40px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .__spinner {
+    bottom: 3%;
+    width: 40px;
+  }
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }

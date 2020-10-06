@@ -13,6 +13,10 @@ const Result = ({ data }) => {
         <strong>Publication: </strong>
         {data.InPublication[0].name}
       </h4>
+      <h4>
+        <strong>Word Count: </strong>
+        {data.wordCount}
+      </h4>
       <div className="__url">
         <a href={data.url} target={data.url}>
           <strong>URL: </strong> <br />
@@ -22,7 +26,7 @@ const Result = ({ data }) => {
 
       <div className="__nearestNeighbors">
         <h4>
-          <strong>Nearest Neighbors</strong>Nearest Neighbors
+          <strong>Nearest Neighbors</strong>
         </h4>
         <ul>
           {data._nearestNeighbors.neighbors.length > 0 ? (
