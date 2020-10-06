@@ -32,7 +32,8 @@ function App() {
 
     if (word && !publication) {
       e.target.textContent = "Searching...";
-      spinner.current.style.animation = "spin 0.5s linear infinite";
+      spinner.current.style.display = "initial";
+      spinner.current.style.animation = "spin 1.2s linear infinite";
 
       setTimeout(async () => {
         await client.graphql
@@ -54,7 +55,7 @@ function App() {
           .do()
           .then((res) => {
             setData(res.data.Get.Things.Article);
-            spinner.current.style.animation = "spin 4s linear infinite";
+            spinner.current.style.display = "none";
           })
           .catch((err) => {
             console.error(err);
@@ -65,7 +66,8 @@ function App() {
 
     if (word && publication) {
       e.target.textContent = "Searching...";
-      spinner.current.style.animation = "spin 0.5s 3.0s linear infinite";
+      spinner.current.style.display = "initial";
+      spinner.current.style.animation = "spin 1.2s linear infinite";
       setTimeout(async () => {
         await client.graphql
           .get()
@@ -96,7 +98,7 @@ function App() {
           .do()
           .then((res) => {
             setData(res.data.Get.Things.Article);
-            spinner.current.style.animation = "spin 4s linear infinite";
+            spinner.current.style.display = "none";
           })
           .catch((err) => {
             console.error(err);
@@ -143,7 +145,7 @@ function App() {
               <div className="__placeHolderText">
                 <h3>
                   {data === null
-                    ? "Welcome!"
+                    ? "Welcome"
                     : "Sorry, no results found. Please try again."}
                 </h3>
               </div>
