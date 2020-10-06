@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./App.css";
 
 // weaviate package
@@ -19,6 +19,7 @@ function App() {
   const [data, setData] = useState(null);
   const [count, setCount] = useState("");
   const [limit, setLimit] = useState("");
+  const displayMessage = useRef();
 
   // weaviate setup
   const client = weaviate.client({
@@ -29,6 +30,9 @@ function App() {
   // Search function - where the magic happens
   const search = (e, spinner, searchButton) => {
     e.preventDefault();
+    displayMessage.current.textContent = "Welcome";
+    displayMessage.current.style.color = "#304a6c";
+    displayMessage.current.style.fontSize = "2.75rem";
 
     if (word && !publication) {
       e.target.textContent = "Searching...";
@@ -59,6 +63,11 @@ function App() {
           })
           .catch((err) => {
             console.error(err);
+            spinner.current.style.display = "none";
+            displayMessage.current.textContent =
+              "Oops...something went wrong. Please try again.";
+            displayMessage.current.style.color = "#fa0171";
+            displayMessage.current.style.fontSize = "1.75rem";
           });
         searchButton.current.textContent = "Search";
       }, 500);
@@ -102,6 +111,11 @@ function App() {
           })
           .catch((err) => {
             console.error(err);
+            spinner.current.style.display = "none";
+            displayMessage.current.textContent =
+              "Oops...something went wrong. Please try again.";
+            displayMessage.current.style.color = "#fa0171";
+            displayMessage.current.style.fontSize = "1.75rem";
           });
         searchButton.current.textContent = "Search";
       }, 500);
@@ -145,7 +159,7 @@ function App() {
               <div className="__placeHolderText">
                 <div>
                   {data === null ? (
-                    "Welcome"
+                    <h3 ref={displayMessage}>Welcome</h3>
                   ) : (
                     <h4>Sorry, no results found. Please try again</h4>
                   )}
