@@ -1,0 +1,19 @@
+/* Header */
+.__logo {
+  height: 38px;
+  margin-left: 2.5%;
+  position: fixed;
+}
+
+@media (max-width: 500px) {
+  .__logo {
+    height: 25px;
+    position: relative;
+  }
+}
+
+@media (max-width: 1200px) {
+  .__logo {
+    height: 25px;
+  }
+}

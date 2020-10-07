@@ -7,7 +7,7 @@ const client = weaviate.client({
   host: "demo.dataset.playground.semi.technology/",
 });
 
-const withWhereObj = (publication, count) => {
+const withWhereObj = (publication, minWordCount) => {
   if (publication) {
     return {
       operator: "And",
@@ -20,7 +20,7 @@ const withWhereObj = (publication, count) => {
         {
           path: ["wordCount"],
           operator: "GreaterThan",
-          valueInt: Number(count) || 1,
+          valueInt: Number(minWordCount) || 1,
         },
       ],
     };
@@ -28,12 +28,12 @@ const withWhereObj = (publication, count) => {
     return {
       path: ["wordCount"],
       operator: "GreaterThan",
-      valueInt: Number(count) || 1,
+      valueInt: Number(minWordCount) || 1,
     };
   }
 };
 
-const searchFunction = async (word, limit, publication, count) => {
+const getArticles = async (word, limit, publication, minWordCount) => {
   const res = await client.graphql
     .get()
     .withClassName("Article")
@@ -44,11 +44,11 @@ const searchFunction = async (word, limit, publication, count) => {
       concepts: [word],
       certainty: 0.7,
     })
-    .withWhere(withWhereObj(publication, count))
+    .withWhere(withWhereObj(publication, minWordCount))
     .withLimit(Number(limit))
     .do();
 
   return res.data.Get.Things.Article;
 };
 
-export default searchFunction;
+export default getArticles;

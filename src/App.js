@@ -2,19 +2,17 @@ import React, { useState } from "react";
 import "./App.css";
 
 // Other components
-import Header from "./components/Header";
-import UserInput from "./components/UserInput";
+import Home from "./components/Home";
 
 // functions
-import searchFunction from "./Search";
-import displayResults, { displayMessages } from "./screenmessages";
+import getArticles from "./weaviate";
 
 function App() {
   // State
   const [word, setWord] = useState("");
   const [publication, setPublication] = useState("");
   const [data, setData] = useState(null);
-  const [count, setCount] = useState("");
+  const [minWordCount, setMinWordCount] = useState("");
   const [limit, setLimit] = useState("");
   const [isError, setError] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
@@ -27,7 +25,12 @@ function App() {
 
     if (word) {
       try {
-        const articles = await searchFunction(word, limit, publication, count);
+        const articles = await getArticles(
+          word,
+          limit,
+          publication,
+          minWordCount
+        );
         setData(articles);
         setIsSearching(false);
       } catch (err) {
@@ -44,47 +47,26 @@ function App() {
 
     setWord("");
     setLimit("");
-    setCount("");
+    setMinWordCount("");
     setPublication("");
   };
 
-  // What displays on screen depending on state
-  const displayScreen = () => {
-    if (data) {
-      return displayResults(data);
-    } else {
-      return displayMessages(isError, screenMessage);
-    }
-  };
-
   return (
-    <div className="__App">
-      {/* Header of the app */}
-      <header>
-        <Header />
-      </header>
-
-      {/* Main part */}
-      <main>
-        <div className="__Body">
-          {/* Form to collect values from user and query data from weaviate*/}
-          <UserInput
-            searchFunction={search}
-            word={word}
-            setWord={setWord}
-            publication={publication}
-            setPublication={setPublication}
-            limit={limit}
-            setLimit={setLimit}
-            count={count}
-            setCount={setCount}
-            isSearching={isSearching}
-          />
-          {/* main screen display - changes depending on state */}
-          <div className="__ResultsDiv">{displayScreen()}</div>
-        </div>
-      </main>
-    </div>
+    <Home
+      searchFunction={search}
+      word={word}
+      setWord={setWord}
+      publication={publication}
+      setPublication={setPublication}
+      limit={limit}
+      setLimit={setLimit}
+      minWordCount={minWordCount}
+      setMinWordCount={setMinWordCount}
+      isSearching={isSearching}
+      data={data}
+      isError={isError}
+      screenMessage={screenMessage}
+    />
   );
 }
 

@@ -1,10 +1,11 @@
 import React from "react";
 
+import "./userInput.css";
+
+import Spinner from "./Spinner";
+
 // List of publication to loop through
 import publicationList from "../publications";
-
-// Spinner img
-import spinner from "../images/color.png";
 
 // Material UI library
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -19,8 +20,8 @@ const UserInput = ({
   setWord,
   publication,
   setPublication,
-  count,
-  setCount,
+  minWordCount,
+  setMinWordCount,
   limit,
   setLimit,
   isSearching,
@@ -55,14 +56,14 @@ const UserInput = ({
           <FormHelperText>Publication</FormHelperText>
         </FormControl>
 
-        {/* Greater than word count input */}
+        {/* Greater than word minWordCount input */}
         <TextField
           helperText="Word Count Greater Than"
           type="number"
           step="100"
           id="filled-size-normal"
-          value={count}
-          onChange={(e) => setCount(e.target.value)}
+          value={minWordCount}
+          onChange={(e) => setMinWordCount(e.target.value)}
           className="__input"
         />
 
@@ -83,11 +84,7 @@ const UserInput = ({
       </form>
 
       {/* Spinner */}
-      <img
-        src={spinner}
-        alt="Spinner"
-        className={isSearching ? "__spinner" : "__noSpinner"}
-      />
+      <Spinner isSearching={isSearching} />
     </div>
   );
 };
