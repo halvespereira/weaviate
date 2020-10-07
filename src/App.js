@@ -40,7 +40,8 @@ function App() {
         setIsSearching(false);
       }
     } else {
-      setScreenMessage("Must enter Semantics keywords");
+      setData(null);
+      setScreenMessage("Must enter Semantic keywords");
       setError(true);
       setIsSearching(false);
     }
