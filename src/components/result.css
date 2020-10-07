@@ -2,7 +2,7 @@
 
 .__Result {
   width: 22%;
-  border-radius: 3em 0em 3em 0;
+  border-radius: 0.5rem;
   margin: 1rem 1rem 1rem 0.62rem;
   padding: 2%;
   height: 58vh;
@@ -14,14 +14,21 @@
     opacity 0.256s ease-out, outline 0.256s ease-out, transform 0.256s ease-out;
 }
 
+strong {
+  color: #fa0171;
+}
+
 .__Result:hover {
   background: #fa0171;
   cursor: pointer;
-  border-radius: 0 3em 0 3rem;
+}
+
+.__Result:hover strong {
+  color: #00152b;
 }
 
 .__Result h3 {
-  font-size: 1rem;
+  font-size: 1.3rem;
   width: 100%;
   height: 20%;
   margin-bottom: 4%;
