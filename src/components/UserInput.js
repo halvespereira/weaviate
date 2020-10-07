@@ -35,7 +35,7 @@ const UserInput = ({
           value={word}
           onChange={(e) => setWord(e.target.value)}
           className="__input"
-          helperText="Semantic Word"
+          helperText="Semantic Keywords"
         />
 
         {/* Dropdown for publication list */}

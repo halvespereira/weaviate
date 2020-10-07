@@ -25,14 +25,20 @@ function App() {
     e.preventDefault();
     setIsSearching(true);
 
-    try {
-      const articles = await searchFunction(word, limit, publication, count);
-      setData(articles);
-      setIsSearching(false);
-    } catch (err) {
-      console.log(err);
+    if (word) {
+      try {
+        const articles = await searchFunction(word, limit, publication, count);
+        setData(articles);
+        setIsSearching(false);
+      } catch (err) {
+        console.log(err);
+        setError(true);
+        setScreenMessage("Oops, something went wrong");
+        setIsSearching(false);
+      }
+    } else {
+      setScreenMessage("Must enter Semantics keywords");
       setError(true);
-      setScreenMessage("Oops, something went wrong.");
       setIsSearching(false);
     }
 
