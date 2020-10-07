@@ -80,18 +80,21 @@
 
 @media (max-width: 1000px) and (min-width: 501px) {
   .__Result {
-    height: 100vh;
+    height: 53vh;
     width: 40%;
   }
 
   .__Result h3 {
-    font-size: 0.7rem;
+    font-size: 1rem;
     margin-bottom: 2%;
     height: 17%;
   }
 
   .__Results h4 {
     font-size: 0.7rem;
+  }
+
+  .__nearestNeighbors {
   }
 }
 

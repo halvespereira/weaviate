@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
-
-// Generate unique id
-import nextId from "react-id-generator";
+import React from "react";
 
 // List of publication to loop through
 import publicationList from "../publications";
+
+// Spinner img
+import spinner from "../images/color.png";
 
 // Material UI library
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -13,8 +13,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
 
-// Spinner logo
-import logoInverted from "../images/color.png";
 const UserInput = ({
   searchFunction,
   word,
@@ -25,17 +23,8 @@ const UserInput = ({
   setCount,
   limit,
   setLimit,
-  onChange,
+  isSearching,
 }) => {
-  // Using refs to target elements
-  const searchButton = useRef();
-  const spinner = useRef();
-
-  // Handling state in parent component
-  const handleChange = (e, f) => {
-    onChange(e.target.value, f);
-  };
-
   return (
     <div className="__UserInput">
       <form noValidate autoComplete="off">
@@ -44,7 +33,7 @@ const UserInput = ({
           type="text"
           id="filled-size-normal"
           value={word}
-          onChange={(e) => handleChange(e, setWord)}
+          onChange={(e) => setWord(e.target.value)}
           className="__input"
           helperText="Semantic Word"
         />
@@ -53,12 +42,12 @@ const UserInput = ({
         <FormControl className="__select">
           <Select
             value={publication}
-            onChange={(e) => handleChange(e, setPublication)}
+            onChange={(e) => setPublication(e.target.value)}
             displayEmpty
           >
             <MenuItem value=""></MenuItem>
-            {publicationList.map((p) => (
-              <MenuItem key={nextId()} value={p}>
+            {publicationList.map((p, idx) => (
+              <MenuItem key={idx} value={p}>
                 {p}
               </MenuItem>
             ))}
@@ -73,7 +62,7 @@ const UserInput = ({
           step="100"
           id="filled-size-normal"
           value={count}
-          onChange={(e) => handleChange(e, setCount)}
+          onChange={(e) => setCount(e.target.value)}
           className="__input"
         />
 
@@ -83,26 +72,21 @@ const UserInput = ({
           type="number"
           id="filled-size-normal"
           value={limit}
-          onChange={(e) => handleChange(e, setLimit)}
+          onChange={(e) => setLimit(e.target.value)}
           className="__input"
         />
 
         {/* Submit button */}
-        <button
-          type="submit"
-          onClick={(e) => searchFunction(e, spinner, searchButton)}
-          ref={searchButton}
-        >
-          Search
+        <button type="submit" onClick={(e) => searchFunction(e)}>
+          {isSearching ? "Searching..." : "Search"}
         </button>
       </form>
 
-      {/* Spinner logo */}
+      {/* Spinner */}
       <img
-        src={logoInverted}
-        alt="SeMI Logo"
-        ref={spinner}
-        className="__spinner"
+        src={spinner}
+        alt="Spinner"
+        className={isSearching ? "__spinner" : "__noSpinner"}
       />
     </div>
   );
