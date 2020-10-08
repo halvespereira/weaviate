@@ -35,7 +35,7 @@
   -moz-animation: fadein 8s;
   -ms-animation: fadein 8s;
   -o-animation: fadein 8s;
-  animation: fadein 8s, bigger 0.9s linear infinite;
+  animation: fadein 8s;
   margin-bottom: 19%;
 }
 
@@ -80,33 +80,6 @@
 @media (max-height: 500px) {
   .__UserOutput {
     flex: 0.7;
-  }
-}
-
-@keyframes bigger {
-  0% {
-    transform: scale(0.8);
-    color: #00152b;
-  }
-  20% {
-    transform: scale(1.1);
-    color: #fa0171;
-  }
-  40% {
-    transform: scale(0.8);
-    color: #00152b;
-  }
-  60% {
-    transform: scale(1.1);
-    color: #fa0171;
-  }
-  80% {
-    transform: scale(0.8);
-    color: #00152b;
-  }
-  100% {
-    transform: scale(0.8);
-    color: #00152b;
   }
 }
 
