@@ -1,6 +1,6 @@
 import React from "react";
 
-// Spinner img
+// Logo img
 import logo from "../images/logo-horizontal-payoff.png";
 
 import "./Header.css";
@@ -8,7 +8,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <header>
-      <img src={logo} alt="SeMI logo" className="__logo" />;
+      <img src={logo} alt="SeMI logo" className="__logo" />
     </header>
   );
 };
