@@ -8,7 +8,7 @@ import NoResultsFound from "./NoResultsFound";
 
 const UserOutput = ({ data, isError, screenMessage }) => {
   // Function runs if there is an error or if there isn't any data in state
-  const getErrorWelcomeMessage = (isError, screenMessage) => {
+  const ErrorWelcomeMessage = ({ isError, screenMessage }) => {
     return (
       <h3 className={isError ? "__isError" : "__welcomeMessage"}>
         {screenMessage}
@@ -17,7 +17,7 @@ const UserOutput = ({ data, isError, screenMessage }) => {
   };
 
   // Function runs where data is fetched from Weaviate
-  const getResults = (data) => {
+  const SearchResults = ({ data }) => {
     if (data.length) {
       return (
         <div className="__ResultsDiv">
@@ -26,14 +26,18 @@ const UserOutput = ({ data, isError, screenMessage }) => {
           ))}
         </div>
       );
-    } else {
-      return <NoResultsFound />;
     }
+
+    return <NoResultsFound />;
   };
 
   return (
     <div className="__UserOutput">
-      {data ? getResults(data) : getErrorWelcomeMessage(isError, screenMessage)}
+      {data ? (
+        <SearchResults data={data} />
+      ) : (
+        <ErrorWelcomeMessage isError={isError} screenMessage={screenMessage} />
+      )}
     </div>
   );
 };
