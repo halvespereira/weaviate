@@ -72,9 +72,10 @@ strong {
 
 @media (max-width: 749px) {
   .__Result {
-    width: 97%;
+    width: 90%;
     margin: 0rem auto 1rem auto;
-    padding: 5%;
+    padding: 4%;
+    height: 70vh;
   }
 
   .__Result h3 {
