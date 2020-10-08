@@ -4,8 +4,8 @@ import "../App.css";
 // Other components
 import Header from "./Header";
 import UserInput from "./UserInput";
-import ScreenDisplay from "./ScreenDisplay";
-const Home = ({
+import UserOutput from "./UserOutput";
+const Main = ({
   searchFunction,
   word,
   setWord,
@@ -20,12 +20,13 @@ const Home = ({
   isError,
   screenMessage,
 }) => {
+  // App divided in 3 parts - Header, UserInput, and UserOutput
+
   return (
     <div className="__App">
       {/* Header of the app */}
-      <header>
-        <Header />
-      </header>
+
+      <Header />
 
       {/* Main section of the app */}
       <main>
@@ -44,7 +45,7 @@ const Home = ({
             isSearching={isSearching}
           />
           {/* Screen display - changes depending on state */}
-          <ScreenDisplay
+          <UserOutput
             data={data}
             isError={isError}
             screenMessage={screenMessage}
@@ -55,4 +56,4 @@ const Home = ({
   );
 };
 
-export default Home;
+export default Main;

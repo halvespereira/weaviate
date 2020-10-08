@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./spinner.css";
+import "./Spinner.css";
 
 // Spinner img
 import spinner from "../images/color.png";

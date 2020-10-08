@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./App.css";
 
 // Other components
-import Home from "./components/Home";
+import Main from "./components/Main";
 
 // functions
-import getArticles from "./weaviate";
+import getArticles from "./searchFunctions";
 
 function App() {
   // State
@@ -23,26 +23,26 @@ function App() {
     e.preventDefault();
     setIsSearching(true);
 
-    if (word) {
-      try {
-        const articles = await getArticles(
-          word,
-          limit,
-          publication,
-          minWordCount
-        );
-        setData(articles);
-        setIsSearching(false);
-      } catch (err) {
-        console.log(err);
-        setError(true);
-        setScreenMessage("Oops, something went wrong");
-        setIsSearching(false);
-      }
-    } else {
+    if (!word) {
       setData(null);
       setScreenMessage("Must enter Semantic keywords");
       setError(true);
+      setIsSearching(false);
+    }
+
+    try {
+      const articles = await getArticles(
+        word,
+        limit,
+        publication,
+        minWordCount
+      );
+      setData(articles);
+      setIsSearching(false);
+    } catch (err) {
+      console.log(err);
+      setError(true);
+      setScreenMessage("Oops, something went wrong");
       setIsSearching(false);
     }
 
@@ -52,8 +52,9 @@ function App() {
     setPublication("");
   };
 
+  // rendering main component
   return (
-    <Home
+    <Main
       searchFunction={search}
       word={word}
       setWord={setWord}

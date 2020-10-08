@@ -1,11 +1,12 @@
 /* Individual result */
 
 .__Result {
-  width: 22%;
+  width: 25%;
   border-radius: 0.5rem;
   margin: 1rem 1rem 1rem 0.62rem;
   padding: 2%;
-  height: 58vh;
+  justify-self: center;
+  height: 57vh;
   color: #fff;
   background: #00152b;
   font-family: alegreya Sans, sans-serif;
@@ -67,11 +68,13 @@ strong {
   padding: 0;
 }
 
-@media (max-width: 500px) {
+/* Media queries for responsiveness  */
+
+@media (max-width: 749px) {
   .__Result {
-    width: 95%;
+    width: 97%;
     margin: 0rem auto 1rem auto;
-    padding: 3%;
+    padding: 5%;
   }
 
   .__Result h3 {
@@ -80,14 +83,14 @@ strong {
     height: 17%;
   }
 
-  .__Results h4 {
+  .__Result h4 {
     font-size: 0.9rem;
   }
 }
 
-@media (max-width: 1000px) and (min-width: 501px) {
+@media (max-width: 1200px) and (min-width: 751px) {
   .__Result {
-    height: 53vh;
+    height: 70vh;
     width: 40%;
   }
 
@@ -97,15 +100,12 @@ strong {
     height: 17%;
   }
 
-  .__Results h4 {
-    font-size: 0.7rem;
-  }
-
-  .__nearestNeighbors {
+  .__Result h4 {
+    font-size: 0.9rem;
   }
 }
 
-@media (min-width: 1001px) and (max-width: 1500px) {
+@media (min-width: 1201px) and (max-width: 1500px) {
   .__Result h3 {
     font-size: 1.3rem;
     margin-bottom: 2%;
@@ -117,11 +117,17 @@ strong {
   }
 
   .__Result {
-    height: 50vh;
+    height: 60vh;
     width: 42%;
   }
 
   .__logo {
     height: 35px;
+  }
+}
+
+@media (max-height: 500px) {
+  .__Result {
+    height: 130vh;
   }
 }

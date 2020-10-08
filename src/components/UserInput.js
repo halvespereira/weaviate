@@ -1,11 +1,12 @@
 import React from "react";
 
-import "./userInput.css";
+import "./UserInput.css";
 
+// Spinner component
 import Spinner from "./Spinner";
 
 // List of publication to loop through
-import publicationList from "../publications";
+import publicationList from "../publications/publications";
 
 // Material UI library
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -29,7 +30,7 @@ const UserInput = ({
   return (
     <div className="__UserInput">
       <form noValidate autoComplete="off">
-        {/* Semantic word input */}
+        {/* Semantic keywords input */}
         <TextField
           type="text"
           id="filled-size-normal"

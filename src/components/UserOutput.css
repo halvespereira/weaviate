@@ -1,18 +1,23 @@
 /* Screen Display */
 
-.__ScreenDisplay {
+.__UserOutput {
   display: flex;
-  justify-content: center;
-  flex: 0.8;
-  width: 75%;
   align-self: center;
-  flex-wrap: wrap;
-  margin-top: 6%;
+  justify-content: center;
+  flex: 0.81;
+  width: 75%;
+  margin: 6% 0 0 0;
 }
 
-.__ScreenDisplay > h4 {
+.__UserOutput > h4 {
   width: 100%;
   text-align: center;
+}
+
+.__ResultsDiv {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
 }
 
 .__welcomeMessage {
@@ -31,10 +36,10 @@
   -ms-animation: fadein 8s;
   -o-animation: fadein 8s;
   animation: fadein 8s;
+  margin-bottom: 19%;
 }
 
-.__isError,
-.__noResultsFound {
+.__isError {
   font-family: Alegreya, serif;
   width: 100%;
   text-align: center;
@@ -48,10 +53,33 @@
   font-size: 1.75rem;
 }
 
+/* Media queries for responsiveness  */
+
 @media (max-width: 500px) {
-  .__ScreenDisplay {
+  .__UserOutput {
     margin-top: 0;
-    width: 95%;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .__ResultsDiv {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 1200px) {
+  .__UserOutput {
+    width: 75%;
+  }
+
+  .__ResultsDiv {
+    width: 90%;
+  }
+}
+
+@media (max-height: 500px) {
+  .__UserOutput {
+    flex: 0.7;
   }
 }
 

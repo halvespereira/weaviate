@@ -1,5 +1,5 @@
 import React from "react";
-import "./result.css";
+import "./Result.css";
 // Package to generate unique id
 import nextId from "react-id-generator";
 
