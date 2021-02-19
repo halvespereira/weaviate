@@ -1,7 +1,5 @@
 import React from "react";
 import "./Result.css";
-// Package to generate unique id
-import nextId from "react-id-generator";
 
 const Result = ({ data }) => {
   return (
