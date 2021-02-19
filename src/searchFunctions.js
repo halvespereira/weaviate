@@ -15,7 +15,7 @@ const withWhereObj = (publication, minWordCount) => {
         {
           operator: "Equal",
           path: ["inPublication", "Publication", "name"],
-          valueText: `${publication}`,
+          valueString: `${publication}`,
         },
         {
           path: ["wordCount"],
