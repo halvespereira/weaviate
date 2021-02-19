@@ -6,13 +6,13 @@ import nextId from "react-id-generator";
 const Result = ({ data }) => {
   return (
     <div className="__Result">
-      <h3>
+      <h3 style={{ height: "125px" }}>
         <strong>Title: </strong>
         {data.title}
       </h3>
       <h4>
         <strong>Publication: </strong>
-        {data.InPublication[0].name}
+        {data.inPublication[0].name}
       </h4>
       <h4>
         <strong>Word Count: </strong>
@@ -25,19 +25,11 @@ const Result = ({ data }) => {
         </a>
       </div>
 
-      <div className="__nearestNeighbors">
+      <div className="__certainty">
         <h4>
-          <strong>Nearest Neighbors</strong>
+          <strong>Certainty:</strong>
         </h4>
-        <ul>
-          {data._nearestNeighbors.neighbors.length > 0 ? (
-            data._nearestNeighbors.neighbors.map((n) => (
-              <li key={nextId()}>{n.concept} - </li>
-            ))
-          ) : (
-            <p>Nearest neighbors not provided</p>
-          )}
-        </ul>
+        <p>{data._additional.certainty.toFixed(2)}</p>
       </div>
     </div>
   );

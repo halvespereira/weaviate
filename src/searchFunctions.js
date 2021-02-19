@@ -36,19 +36,19 @@ const withWhereObj = (publication, minWordCount) => {
 const getArticles = async (word, limit, publication, minWordCount) => {
   const res = await client.graphql
     .get()
-    .withClassName("Article")
-    .withFields(
-      "title url wordCount InPublication {... on Publication {name}} _nearestNeighbors{ neighbors {concept}}"
-    )
-    .withExplore({
+    .withNearText({
       concepts: [word],
       certainty: 0.7,
     })
+    .withClassName("Article")
+    .withFields(
+      "title url wordCount inPublication {... on Publication {name}} _additional {certainty}"
+    )
     .withWhere(withWhereObj(publication, minWordCount))
     .withLimit(Number(limit))
     .do();
 
-  return res.data.Get.Things.Article;
+  return res.data.Get.Article;
 };
 
 export default getArticles;
